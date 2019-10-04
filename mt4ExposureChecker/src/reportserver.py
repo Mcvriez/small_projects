@@ -1,4 +1,5 @@
 from peewee import *
+import time
 
 
 def get_trades(dbname, params):
@@ -99,3 +100,32 @@ def get_users(dbname, params):
             table_name = 'mt4_users'
 
     return Mt4Users
+
+
+def dump_to_mysql(dbname, tname, data, params):
+    db = MySQLDatabase(dbname, **params)
+
+    class BaseModel(Model):
+        class Meta:
+            database = db
+
+    class Report(BaseModel):
+        symbol = CharField(column_name='Symbol')
+        mt4lots = FloatField(column_name='mtvol')
+        mtvol = IntegerField(column_name='mtlots')
+        lpvol = IntegerField(column_name='lpvol')
+        diff = IntegerField(column_name='diff')
+        timestamp = IntegerField(column_name='timestamp')
+        class Meta:
+            table_name = tname
+
+    Report.create_table()
+    ts = time.time()
+    print(f"Uploading data for {tname} to the remote mysql server..")
+    for symbol in data:
+        line = Report.create(symbol=symbol, mt4lots=data[symbol]['mt_lots'],
+                             mtvol=data[symbol]['mt_vol'],
+                             lpvol=data[symbol]['lp_vol'],
+                             diff=data[symbol]['mt_vol']-data[symbol]['lp_vol'],
+                             timestamp=ts)
+        line.save()

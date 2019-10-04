@@ -27,7 +27,11 @@ class Symbol_map:
 class Connections:
     db_params = dict(gconfig._sections['ReportServer'])
     db_params['port'] = int(db_params['port'])
-    db_params['use_unicode'] = bool(db_params['use_unicode'])
+    if db_params.get('use_unicode'):
+        db_params['use_unicode'] = bool(db_params['use_unicode'])
+    else:
+        db_params['use_unicode'] = True
+
     connections = []
     for connect in gconfig.sections():
         if connect != 'ReportServer' and connect != 'Maps':

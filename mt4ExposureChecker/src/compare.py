@@ -9,6 +9,7 @@ import xlwt
 from mt4ExposureChecker.src.lp_positions import lp_positions
 from mt4ExposureChecker.src.mt_positions import mt4_positions
 from mt4ExposureChecker.src.config import access_config
+from mt4ExposureChecker.src.reportserver import dump_to_mysql
 
 
 def compare():
@@ -25,7 +26,10 @@ def compare():
             mt_pos = mt4_positions(groups, dbname, db_params)
             lp_pos = lp_positions(token)
             pos = compile_positions(mt_pos, lp_pos)
-            dump_to_excel(pos, name)
+            if ('upload_db' in connection):
+                dump_to_mysql(connection['upload_db'], name, pos, db_params)
+            else:
+                dump_to_excel(pos, name)
         except (pymysql.err.InternalError, peewee.InternalError):
             e = sys.exc_info()[1]
             print(f'Error ({e}) occurred while connecting to {name}')
