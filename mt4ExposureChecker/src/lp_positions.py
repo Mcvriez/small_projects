@@ -1,5 +1,5 @@
 from fxcmpy import fxcmpy
-from src.config import map_config
+from mt4ExposureChecker.src.config import map_config
 
 
 def get_orders(token):

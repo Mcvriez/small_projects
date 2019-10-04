@@ -5,7 +5,7 @@ import time
 
 
 gconfig = configparser.ConfigParser()
-gconfig.read(r'configuration\config.ini')
+gconfig.read(r'mt4ExposureChecker\configuration\config.ini')
 
 
 @dataclass

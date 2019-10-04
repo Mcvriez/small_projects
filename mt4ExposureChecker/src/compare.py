@@ -5,9 +5,9 @@ import pymysql
 import os
 import sys
 import xlwt
-from src.lp_positions import lp_positions
-from src.mt_positions import mt4_positions
-from src.config import access_config
+from mt4ExposureChecker.src.lp_positions import lp_positions
+from mt4ExposureChecker.src.mt_positions import mt4_positions
+from mt4ExposureChecker.src.config import access_config
 
 
 def compare():
