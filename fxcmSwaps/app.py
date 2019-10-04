@@ -3,6 +3,3 @@ from fxcmSwaps.config import config
 
 
 routine(config.token, config.output)
-
-
-
