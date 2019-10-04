@@ -1,6 +1,6 @@
 from datetime import datetime
-from src.reportserver import get_trades, get_users
-from src.config import map_config
+from mt4ExposureChecker.src.reportserver import get_trades, get_users
+from mt4ExposureChecker.src.config import map_config
 
 
 def mt4_positions(groups, dbname, dbparams):

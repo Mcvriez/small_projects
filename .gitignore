@@ -1,4 +1,7 @@
 /venv/
 /.idea/
+
 /fxcmSwaps/config/config.py
+
 /mt4ExposureChecker/configuration/config.ini
+/mt4ExposureChecker/reports/

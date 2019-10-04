@@ -5,8 +5,7 @@ import time
 
 
 gconfig = configparser.ConfigParser()
-gconfig.read(r'mt4ExposureChecker\configuration\config.ini')
-
+gconfig.read(r'configuration\config.ini')
 
 @dataclass
 class Symbol_map:
