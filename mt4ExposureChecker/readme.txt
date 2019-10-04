@@ -20,11 +20,10 @@ Config file should be named config.ini and contain information about Mt4 report 
     user =
     password =
 
-And information each connection
+And information each connection, name must be unique.
 
     [live-api]
     db = dbname                            // report server database name
     upload_db = db_to_upload               // optional, if not specified data is dumped to xls
     token = fxcmtoken                      // fxcm api token
     groups = mt4_group1;mt4_group2         // mt4 group names for the net position retrieving
-
