@@ -1,0 +1,47 @@
+max_delay_all_quotes:     150
+max_delay_single_symbol:  300
+max_delay_trades:         100
+repeat_time:              60
+sleep_on_trade_fail:      30
+
+rs: mysqlstring
+quotes_table: MT4_PRICES
+trades_table: MT4_TRADES
+logging_level: 10 # INFO = 20 DEBUG = 10 and so on
+
+wik:
+  host:        '127.0.0.1'
+  port:         34434
+  test_account: 5111
+
+
+slack_token: xoxb-token
+apptoken: xapp-token
+slack_channel: chanelname
+
+# ---------------------------------------------
+
+holidays:
+  - 2021-01-01
+  - 2021-12-31
+
+extra_delays:
+  EURDKK: 3600
+  USDTRY: 1500
+  USDHKD: 1500
+
+mt_admin: '@v.vasilev'
+mt_dealing: '@v.vasilev'
+
+first_hour_skip: ["XAGUSD", "XAUUSD", "XPTUSD", "COPPER", "NGAS", "DE30", "UK100", "USOil", "UKOil", "JP225", "EU50",
+                  "FR40", "US500", "UT100", "US30", "ES35", "HK50", "AU200", "GBPNOK", "USDDKK", "EURNOK", "USDMXN",
+                  "USDZAR", "USDHUF", "USDRUB", "EURSEK", "GBPSEK"]
+
+
+symlist: ["AU200", "CHFJPY", "DE30", "EURTRY", "EURUSD", "GBPNZD", "GBPSEK", "NZDUSD", "USDHKD", "USDHUF", "USDJPY",
+          "USDPLN", "USDSGD", "XPTUSD", "EU50", "FR40", "GBPSGD", "NGAS", "NZDCAD", "USDCAD", "USDTRY", "USOil",
+          "UT100", "BTCUSD", "EURDKK", "AUDCHF", "AUDUSD", "EURAUD", "EURNZD", "EURPLN", "US500", "XAGUSD", "XAUUSD",
+          "AUDNZD", "UK100", "USDCNH", "USDNOK", "USDRUB", "AUDJPY", "COPPER", "EURHKD", "EURJPY", "EURSEK", "GBPCHF",
+          "US30", "USDMXN", "USDSEK", "ES35", "EURGBP", "EURMXN", "GBPAUD", "GBPCAD", "GBPJPY", "GBPNOK", "JP225",
+          "NZDCHF", "NZDJPY", "UKOil", "USDCHF", "USDZAR", "AUDCAD", "CADCHF", "CADJPY", "EURCAD", "EURCHF", "EURNOK",
+          "EURSGD", "GBPUSD", "HK50", "USDDKK"]
